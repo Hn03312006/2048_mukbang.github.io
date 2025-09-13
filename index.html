@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
+    <style>
+         body::before {
+          content: ''; /* Required for pseudo-elements */
+          position: absolute; /* Allows for absolute positioning */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('main_bg.png');
+          background-size: cover;
+          opacity: 0.23; /* This changes the opacity of the background image */
+          z-index: -1; /* Pushes the background behind the container's content */}
+        #title {text-align: center; font-size: 50px; font-weight: 700; font-family: "Comic Sans MS"; margin-top: 110px; background-color: #ffb700; width: 400px; place-self: center; border-radius: 12px; color: #5A3B18}
+
+        #under_opt {place-self: center; display: grid; width: 660px; grid-template-columns: auto auto auto; column-gap: 30px; margin-top: 40px}
+        #confirm_button {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
+         #confirm_button1 {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
+
+        #confirm_button1:hover {cursor: pointer; background-color: #ca9400}
+        img {width: 200px; height: 200px; border-radius: 12px; }
+        img:hover {cursor: pointer}
+
+    @keyframes pulse-bump {
+            0% {
+                transform: scale(1)
+            }
+            50% {
+                transform: scale(1.1)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+       footer {
+      position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    background-color: rgba(51, 51, 51, 0.8);
+
+    color: #fff;
+    padding: 10px;
+    text-align: center;}
+   @keyframes scale-in {
+            0%{
+                opacity: 0;
+                transform: scale(0)
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+    </style>
+    <title>2048 Mukbang</title>
+</head>
+<body >
+<div id = "title" class = "inherit_transform" > 2048 MUKBANG </div>
+
+    <div id = "under_opt">
+    <div class = "inherit_transform" onclick = OptionConfirm(0)> <img src = "fruits/2.JPG" >
+    </div>
+    <div class = "inherit_transform" onclick = OptionConfirm(1) > <img src = "ice/2.JPG" >
+    </div>
+    <div class = "inherit_transform"  onclick = OptionConfirm(2)> <img src = "sushi/2.JPG" >
+
+    </div>
+        </div>
+<div id = "confirm_button" class = "inherit_transform">
+    WHAT SHOULD WE EAT?
+</div>
+    <footer>
+         Images generated with the assistance of Gemini.
+    </footer>
+
+<script>
+       const options = [0,1,2]
+    function LinkToGame() {
+        let inner_text  = document.getElementById("confirm_button1")
+        let content = inner_text.innerHTML
+        console.log(content)
+        if (content.startsWith("LET'S EAT FRUITS") ){
+            inner_text.onclick = function () {window.location.href='index_fruit.html'}
+        }
+        else if (content.startsWith("LET'S EAT ICE CREAM") ) {
+            inner_text.onclick = function () {window.location.href='index_ice_cream.html'}
+        }
+        else if (content.startsWith("LET'S EAT SUSHI") ) {
+            inner_text.onclick = function () {window.location.href='index_sushi.html'}
+
+        }
+    }
+    function OptionConfirm(option) {
+        for (let element of options) {
+            if (element !== option) {
+                document.getElementsByTagName("img")[element].style.border = "none"
+            }
+        }
+                let confirm =  document.getElementById("confirm_button")
+        if (confirm === null) {
+            confirm =  document.getElementById("confirm_button1")
+
+        }
+        document.getElementsByTagName("img")[option].style.border = "3px black solid"
+        if (option === 0) {
+            confirm.innerHTML = "LET'S EAT FRUITS -->"
+        }
+        else if (option === 1) {
+              confirm.innerHTML =  "LET'S EAT ICE CREAM -->"
+
+        }
+          else if (option === 2) {
+              confirm.innerHTML =  "LET'S EAT SUSHI -->"
+
+        }
+          confirm.id = "confirm_button1"
+            LinkToGame()
+          confirm.style.animation =  "pulse-bump 0.2s ease-in-out"
+
+            confirm.addEventListener("animationend", ()  => {confirm.style.animation = "none" })
+          document.getElementsByTagName("img")[option].style.border = "3px black solid"
+    }
+    let time = 0.3
+    for (let i = 0; i < 5; i++) {
+        time += 0.5
+        document.getElementsByClassName("inherit_transform")[i].style.animation = `scale-in ${time}s cubic-bezier(0.68, -0.55, 0.27, 1.55)`
+    }
+
+
+
+
+</script>
+</body>
+</html>
