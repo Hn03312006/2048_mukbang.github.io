@@ -97,7 +97,7 @@ function moveMergingTile(merging_move) {
                        }
                        double_value_tile.style.animation = "none"
                    }, {once: true})
-               double_value_tile.style.animation = "pulse-bump 0.15s ease-in-out"
+               double_value_tile.style.animation = "pulse-bump 0.1s ease-in-out"
            }, {once: true})
        }
    }
@@ -116,3 +116,4 @@ function appear_of_game_over_board (win_or_not){
     window.location.reload();
     });
 }
+
