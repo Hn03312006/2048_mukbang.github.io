@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
     <style>
+        #parent {display:grid; height: 80dvh; align-items: center; justify-items: center}
          body::before {
           content: ''; /* Required for pseudo-elements */
           position: absolute; /* Allows for absolute positioning */
@@ -16,11 +17,11 @@
           background-size: cover;
           opacity: 0.23; /* This changes the opacity of the background image */
           z-index: -1; /* Pushes the background behind the container's content */}
-        #title {text-align: center; font-size: 50px; font-weight: 700; font-family: "Comic Sans MS"; margin-top: 110px; background-color: #ffb700; width: 400px; place-self: center; border-radius: 12px; color: #5A3B18}
+        #title {text-align: center; font-size: 50px; font-weight: 700; font-family: "Comic Sans MS"; margin-top: 110px; background-color: #ffb700; width: 400px; border-radius: 12px; color: #5A3B18}
 
-        #under_opt {place-self: center; display: grid;  grid-template-columns: auto auto auto;  margin-top: 40px}
-        #confirm_button {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
-         #confirm_button1 {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
+        #under_opt { display: grid;  grid-template-columns: auto auto auto;  margin-top: 40px}
+        #confirm_button { font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
+         #confirm_button1 { font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
 
         #confirm_button1:hover {cursor: pointer; background-color: #ca9400}
         img {border-radius: 12px; }
@@ -59,33 +60,33 @@
         }
 
 
-        @media (min-width: 700px) {
+        @media (min-width: 700px){
             img {
-                width: 200px;
-                height: 200px;
-            }
+         width: 200px;
+            height: 200px;}
 
-            #under_opt {
-                width: 660px;
-                column-gap: 30px
-            }
-        }
+         #under_opt {
+             width: 660px;
+             column-gap: 30px
+         }
+}
         @media (max-width: 700px) {
-            img {
-                width: 150px;
-                height: 150px;
-            }
+          img {
+         width: 150px;
+            height: 150px;}
 
 
-            #under_opt {
-                width: 490px;
-                column-gap: 20px
-            }
+
+          #under_opt {
+             width: 490px;
+             column-gap: 20px
+         }
         }
     </style>
     <title>2048 Mukbang</title>
 </head>
 <body >
+<div id = "parent">
 <div id = "title" class = "inherit_transform" > 2048 MUKBANG </div>
 
     <div id = "under_opt">
@@ -99,6 +100,7 @@
         </div>
 <div id = "confirm_button" class = "inherit_transform">
     WHAT SHOULD WE EAT?
+</div>
 </div>
     <footer>
          Images generated with the assistance of Gemini.
@@ -162,10 +164,4 @@
 
 </script>
 </body>
-</html>
-
-
-</script>
-</body>
-
 </html>
