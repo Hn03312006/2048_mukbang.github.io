@@ -18,12 +18,12 @@
           z-index: -1; /* Pushes the background behind the container's content */}
         #title {text-align: center; font-size: 50px; font-weight: 700; font-family: "Comic Sans MS"; margin-top: 110px; background-color: #ffb700; width: 400px; place-self: center; border-radius: 12px; color: #5A3B18}
 
-        #under_opt {place-self: center; display: grid; width: 660px; grid-template-columns: auto auto auto; column-gap: 30px; margin-top: 40px}
+        #under_opt {place-self: center; display: grid;  grid-template-columns: auto auto auto;  margin-top: 40px}
         #confirm_button {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
          #confirm_button1 {place-self: center; font-size: 30px; margin-top: 40px; font-family: "Comic Sans MS"; width: auto; background-color: #ffb700; border-radius: 12px; padding: 5px}
 
         #confirm_button1:hover {cursor: pointer; background-color: #ca9400}
-        img {width: 200px; height: 200px; border-radius: 12px; }
+        img {border-radius: 12px; }
         img:hover {cursor: pointer}
 
     @keyframes pulse-bump {
@@ -55,6 +55,31 @@
             100% {
                 opacity: 1;
                 transform: scale(1)
+            }
+        }
+
+
+        @media (min-width: 700px) {
+            img {
+                width: 200px;
+                height: 200px;
+            }
+
+            #under_opt {
+                width: 660px;
+                column-gap: 30px
+            }
+        }
+        @media (max-width: 700px) {
+            img {
+                width: 150px;
+                height: 150px;
+            }
+
+
+            #under_opt {
+                width: 490px;
+                column-gap: 20px
             }
         }
     </style>
@@ -137,4 +162,10 @@
 
 </script>
 </body>
+</html>
+
+
+</script>
+</body>
+
 </html>
